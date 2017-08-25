@@ -17,12 +17,16 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_jwt.views import refresh_jwt_token
+from rest_framework_jwt.views import verify_jwt_token
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('brands.urls')),
     url(r'^api-auth/', obtain_jwt_token),
-    # url(r'^api-auth/', include('rest_framework.urls',
+    url(r'^api-auth-refresh/', refresh_jwt_token),
+    url(r'^api-auth-verify/', verify_jwt_token),
+    #url(r'^api-auth/', include('rest_framework.urls',
     #                            namespace='rest_framework')),
 ]

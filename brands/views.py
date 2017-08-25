@@ -7,6 +7,8 @@ from django.http import Http404
 from rest_framework import generics, permissions, status
 from rest_framework.response import Response
 
+from rest_framework_jwt.authentication import JSONWebTokenAuthentication
+
 from brands.models import Info
 from brands.permissions import IsOwnerOrReadOnly
 from brands.serializers import InfoSerializer, UserSerializer
@@ -15,6 +17,7 @@ from brands.serializers import InfoSerializer, UserSerializer
 
 class InfoList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    authentication_classes = (JSONWebTokenAuthentication,)
 
     queryset = Info.objects.all()
     serializer_class = InfoSerializer
@@ -28,6 +31,7 @@ class InfoList(generics.ListCreateAPIView):
 class InfoDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly, 
                             IsOwnerOrReadOnly,)
+    authentication_classes = (JSONWebTokenAuthentication,)
 
     queryset = Info.objects.all()
     serializer_class = InfoSerializer
