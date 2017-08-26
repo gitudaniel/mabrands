@@ -5,11 +5,16 @@ from django.shortcuts import render
 
 from brands.models import Info
 
+import requests
+
 
 
 def ViewAll(request):
-    info = Info.objects.all()
+    data = requests.get('http://localhost:8000')
 
-    context_dict = { 'info': info }
+    representation = data.json()
+    print representation
 
-    return render(request, 'brands_admin/all_data', context_dict)
+    context_dict = {'representation': representation}
+
+    return render(request, 'brands_admin/all_data.html', context_dict)

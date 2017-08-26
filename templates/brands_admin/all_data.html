@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Admin Dashboard</title>
+    <body>
+        {% for item in representation %}
+            {% for key, value in item.iteritems %}
+            <li>{{key}}: {{value}}</li>
+            {% endfor %}
+            <hr/>
+        {% endfor %}
+    </body>
+</html>
