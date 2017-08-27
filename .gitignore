@@ -1,2 +1,4 @@
 __pycache__
 *.pyc
+brands/migrations/0001_initial.py brands/migrations/0001_initial.pyc
+brands_admin/migrations/00*

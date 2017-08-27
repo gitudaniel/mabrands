@@ -15,14 +15,13 @@ import datetime, os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-print BASE_DIR
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yv=1z(j9jn1j#^@gv8m6emm^$mb78w(zu%!1u4$-3)a)eve@0h'
+SECRET_KEY = os.environ.get('BRANDS_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,9 +81,9 @@ WSGI_APPLICATION = 'mabrands.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mabrands',
-        'USER': 'dan',
-        'PASSWORD': 'branding',
+        'NAME': os.environ.get('BRANDS_DB_NAME'),
+        'USER': os.environ.get('BRANDS_DB_USER'),
+        'PASSWORD': os.environ.get('BRANDS_DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }
