@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import datetime, os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 
@@ -29,6 +29,14 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# Authentication settings
+REGISTRATION_OPEN = True
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+LOGIN_REDIRECT_URL = '/brands.'
+LOGIN_URL = '/accounts/login/'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,6 +50,7 @@ INSTALLED_APPS = [
     'brands',
     'brands_admin',
     'rest_framework_jwt',
+    'registration',
 ]
 
 MIDDLEWARE = [

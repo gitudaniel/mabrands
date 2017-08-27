@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^api-auth/', obtain_jwt_token),
     url(r'^api-auth-refresh/', refresh_jwt_token),
     url(r'^api-auth-verify/', verify_jwt_token),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     #url(r'^api-auth/', include('rest_framework.urls',
     #                            namespace='rest_framework')),
 ]
