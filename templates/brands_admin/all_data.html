@@ -1,0 +1,12 @@
+{% extends "brands_admin/base.html" %}
+
+{% block body %}
+    <div>
+        {% for item in representation %}
+            {% for key, value in item.iteritems %}
+            <li>{{key}}: {{value}}</li>
+            {% endfor %}
+            <hr/>
+        {% endfor %}
+    </div>
+{% endblock %}

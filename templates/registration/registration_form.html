@@ -1,0 +1,10 @@
+{% extends "registration/base.html" %}
+
+{% block body %}
+    <h1>Superuser Registration</h1>
+    <form method="POST" action=".">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Submit" />
+    </form>
+{% endblock %}
