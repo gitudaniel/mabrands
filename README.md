@@ -24,6 +24,9 @@ This is for ease of deployment and updating the repository in the production ser
 Because of this the DJANGO_SETTINGS_MODULE in manage.py is set to mabrands.settings.local
 If it was production it would be mabrands.settings.production
 
+Create a user with python manage.py createsuperuser
+This user will be used to log on to the API backend until the registration feature can be implemented.
+
 At this point you should be good to go.
 
 
